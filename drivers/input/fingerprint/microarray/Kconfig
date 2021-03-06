@@ -1,0 +1,9 @@
+if INPUT_FINGERPRINT
+config MICROARRAY_FINGERPRINT
+	tristate "microarray FP spi deriver"
+	depends on SPI_MASTER
+	help
+	  Say Y here to use silead fingerprint driver.
+
+	  If unsure, say N.
+endif

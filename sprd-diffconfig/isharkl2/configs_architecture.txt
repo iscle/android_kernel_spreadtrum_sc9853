@@ -1,0 +1,22 @@
+isharkl2 configs file architecture
+
+||basefile:
+||{
+||        kernel/arch/config/sprd_isharkl2_defconfig
+||}
+||=======>||boardfile
+          ||{
+          ||        kernel/sprd-diffconfig/sharkle/arm/$(TARGET_BOARD)_diff_config
+          ||}
+          =======>||if (TARGET_BUILD_VARIANT == user)
+                  ||{
+                  ||        kernel/sprd-diffconfig/isharkl2/user_diff_config
+                  ||}
+                  =======>||if (BOARD_FINGERPRINT_CONFIG == microarray)
+                          ||{
+                          ||        kernel/sprd-diffconfig/isharkl2/common/microarray_diff_config
+                          ||}
+                          ||else if (BOARD_FINGERPRINT_CONFIG == goodix)
+                          ||{
+                          ||        kernel/sprd-diffconfig/isharkl2/common/goodix_diff_config
+                          ||}

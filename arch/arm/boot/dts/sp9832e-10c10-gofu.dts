@@ -1,0 +1,51 @@
+/*
+ * Spreadtrum SP9832E 1H10 GO FULL board DTS file
+ *
+ * Copyright (C) 2016-2017, Spreadtrum Communications Inc.
+ *
+ * This file is licensed under a dual GPLv2 or X11 license.
+ */
+#include "sp9832e-10c10-go.dts"
+
+/ {
+	model = "Spreadtrum SP9832E-10C10-GOFU Board";
+	reserved-memory {
+		/* if changed ,uboot dts also need change */
+		fb_reserved: fb@9c100000{
+			reg = <0x9c100000 0xe10000>;
+		};
+		/delete-node/ android_go@a1300000;
+	};
+
+	sunwave-fp {
+		compatible = "sunwave,fingerprint";
+		sunwave,reset-gpio = <&ap_gpio 131 0 >;
+		sunwave,irq-gpio = <&ap_eic_async 13 0 >;
+	};
+};
+
+&lcd_ili9881c_mipi_hd {
+	low-res-simu = <1>;
+	simu-width = <720>;
+	simu-height = <1280>;
+};
+
+&i2c3 {
+	status = "okay";
+	adaptive-touchscreen@38 {
+		compatible = "adaptive-touchscreen";
+		reg = <0x38>;
+		gpios = <&ap_gpio 145 0
+			&ap_gpio 144 0>;
+		controller = "focaltech,FT5436";
+		virtualkeys = <580 60 1320 60 45
+				172 360 1320 60 45
+				158 600 1320 60 45>;
+		surface-width = <720>;
+		surface-height = <1280>;
+		private-data {
+		a8 = /bits/ 8 <0x5A>;
+		};
+	};
+};
+

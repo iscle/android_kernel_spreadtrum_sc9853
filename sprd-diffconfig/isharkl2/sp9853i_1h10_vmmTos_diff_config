@@ -1,0 +1,2 @@
+# only add needed delta to kernel/arch/x86/configs/sprd_isharkl2_defconfig
+ADD:CONFIG_MOBILEVISOR_VDRIVER_DUMP

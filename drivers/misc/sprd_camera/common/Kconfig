@@ -1,0 +1,15 @@
+
+config SPRD_CAM_PW_DOMAIN_R3P0V2
+	bool "Spreadtrum Camera Power Domain R3P0V2"
+	depends on SPRD_CAMERA
+	help
+	    This is a power domain driver for Spreadtrum SOCs
+	    and iSharkl2.This driver open and close some clocks for iSharkl2 Cam Sys.
+	    If you want to use this config,
+	    please read spec and driver code, they can help you to use r3p0v2 driver
+
+config SPRD_CAM_PW_DOMAIN_R5P0
+	bool "Spreadtrum Camera Power Domain R5P0"
+	depends on SPRD_CAMERA
+	help
+	    This is a power domain driver for cam & dispc sys.

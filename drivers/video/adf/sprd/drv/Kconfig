@@ -1,0 +1,14 @@
+
+config DISP_R1P0
+	depends on ADF
+	bool "Enable disp r1p0 driver for spreadtrum"
+	help
+	  This driver implements disp r1p0 driver to enable spreadtrum
+	  disp r1p0 support.
+
+config DISP_LITE_R2P0
+	depends on ADF
+	bool "Enable disp lite r2p0 driver for spreadtrum"
+	help
+	This driver implements disp lite r2p0 driver to enable spreadtrum
+	disp lite r2p0 support.

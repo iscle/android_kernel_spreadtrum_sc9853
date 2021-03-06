@@ -1,0 +1,8 @@
+config PCIEHAL
+	tristate "PCIe Support"
+	#depends on SC2355
+	default n
+	---help---
+	  Enable this module for Spreadtrum SC2355 chip pcie interface bus Support.
+	  Please insmod this module before any other WCN subsystems.
+	  Thanks.

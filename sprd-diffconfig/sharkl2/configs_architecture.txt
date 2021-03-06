@@ -1,0 +1,27 @@
+sharkl2 configs file architecture
+
+||base:
+||{
+||        kernel/arch/arm/config/sprd_sharkl2_defconfig
+||}
+=======>||if (TARGET_BOARD_SPEC_CONFIG is defined)
+        ||{
+        ||        kernel/sprd-diffconfig/sharkl2/$(PRODUCT_NAME)_diff_config
+        ||}
+        =======>||if (TARGET_BUILD_VARIANT == user)
+                ||{
+                ||        kernel/sprd-diffconfig/sharkl2/user_diff_config
+                ||}
+                =======>||if (PRODUCT_GO_DEVICE == go_diff_config)
+                        ||{
+                        ||        kernel/sprd-diffconfig/sharkl2/go_diff_config
+                        ||}
+                        =======>||if (BOARD_TEE_CONFIG == trusty)
+                                ||{
+                                ||        kernel/sprd-diffconfig/sharkl2/trusty_diff_config
+                                ||
+                                ||        if (BOARD_FINGERPRINT_CONFIG == chipone)
+                                ||        {
+                                ||                kernel/sprd-diffconfig/sharkl2/chipone_diff_config
+                                ||        }
+                                ||}

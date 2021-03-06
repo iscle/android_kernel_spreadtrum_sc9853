@@ -1,0 +1,7 @@
+
+config FLASH_SC2721
+	bool "Spreadtrum Camera flash Driver"
+	depends on PMIC_SC2721
+	help
+	    new flash driver
+
